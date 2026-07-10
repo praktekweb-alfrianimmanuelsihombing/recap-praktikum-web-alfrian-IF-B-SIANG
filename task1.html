@@ -1,98 +1,37 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konversi Bilangan</title>
-
+    <title>Belajar JavaScript</title>
     <style>
         body{
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 100px;
-            background-color: #f4f4f4;
-        }
-
-        .container{
-            background: white;
-            width: 350px;
-            margin: auto;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-left:100px;
+            margin-top:80px;
+            font-family: Times New Roman;
         }
 
         h1{
-            margin-bottom: 20px;
+            font-size:60px;
         }
 
-        input{
-            padding: 10px;
-            width: 220px;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        button{
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background-color: #3498db;
-            color: white;
-            border-radius: 5px;
-        }
-
-        button:hover{
-            background-color: #2980b9;
-        }
-
-        #hasil{
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            line-height: 1.8;
+        p{
+            font-size:30px;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
-        <h1>Konversi Bilangan</h1>
+    <h1>Belajar JavaScript</h1>
 
-        <input type="text" id="desimal" placeholder="Masukkan Bilangan Desimal">
-        <br>
-
-        <button onclick="konversi()">Konversi</button>
-
-        <div id="hasil"></div>
-    </div>
+    <p id="hasil"></p>
 
     <script>
-        function konversi(){
+        var angka1 = parseInt(prompt("Angka 1 ?", ""));
+        var angka2 = parseInt(prompt("Angka 2 ?", ""));
 
-            let angka = document.getElementById("desimal").value;
+        var hasil = angka1 + angka2;
 
-            // cek apakah input angka valid
-            if(isNaN(angka) || angka === ""){
-                alert("Masukkan angka yang benar!");
-            } else {
-
-                angka = parseInt(angka);
-
-                // konversi bilangan
-                let biner = angka.toString(2).padStart(8, '0');
-                let oktal = angka.toString(8);
-                let heksa = angka.toString(16).toUpperCase();
-
-                // tampilkan hasil
-                document.getElementById("hasil").innerHTML =
-                    "Biner : " + biner + "<br>" +
-                    "Oktal : " + oktal + "<br>" +
-                    "Heksadesimal : " + heksa;
-            }
-        }
+        document.getElementById("hasil").innerHTML =
+            "Hasil Perhitungan " + hasil;
     </script>
 
 </body>

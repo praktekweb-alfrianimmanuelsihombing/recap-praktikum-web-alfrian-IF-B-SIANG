@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:400px;
+            margin:60px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+            font-size:16px;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:30%;
+            padding:10px;
+            margin:5px;
+            font-size:16px;
+            cursor:pointer;
+            border:none;
+            border-radius:5px;
+            background:#007bff;
+            color:white;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+
+        #hasil{
+            margin-top:20px;
+            padding:15px;
+            background:#e8f5e9;
+            border-radius:5px;
+            font-size:20px;
+            font-weight:bold;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Kalkulator</h2>
+
+    <label>Angka Pertama</label>
+    <input type="number" id="angka1">
+
+    <label>Angka Kedua</label>
+    <input type="number" id="angka2">
+
+    <center>
+        <button onclick="tambah()">+</button>
+        <button onclick="kurang()">-</button>
+        <button onclick="kali()">×</button>
+
+        <br>
+
+        <button onclick="bagi()">÷</button>
+        <button onclick="modulus()">%</button>
+        <button onclick="pangkat()">^</button>
+    </center>
+
+    <div id="hasil">
+        Hasil : -
+    </div>
+
+</div>
+
+<script>
+
+function ambilNilai(){
+    let a = parseFloat(document.getElementById("angka1").value);
+    let b = parseFloat(document.getElementById("angka2").value);
+
+    if(isNaN(a) || isNaN(b)){
+        alert("Masukkan kedua angka terlebih dahulu!");
+        return null;
+    }
+
+    return {a,b};
+}
+
+function tambah(){
+    let data = ambilNilai();
+    if(data){
+        document.getElementById("hasil").innerHTML =
+        "Hasil : " + (data.a + data.b);
+    }
+}
+
+function kurang(){
+    let data = ambilNilai();
+    if(data){
+        document.getElementById("hasil").innerHTML =
+        "Hasil : " + (data.a - data.b);
+    }
+}
+
+function kali(){
+    let data = ambilNilai();
+    if(data){
+        document.getElementById("hasil").innerHTML =
+        "Hasil : " + (data.a * data.b);
+    }
+}
+
+function bagi(){
+    let data = ambilNilai();
+    if(data){
+        if(data.b == 0){
+            document.getElementById("hasil").innerHTML =
+            "Tidak bisa dibagi dengan 0";
+        }else{
+            document.getElementById("hasil").innerHTML =
+            "Hasil : " + (data.a / data.b);
+        }
+    }
+}
+
+function modulus(){
+    let data = ambilNilai();
+    if(data){
+        document.getElementById("hasil").innerHTML =
+        "Hasil : " + (data.a % data.b);
+    }
+}
+
+function pangkat(){
+    let data = ambilNilai();
+    if(data){
+        document.getElementById("hasil").innerHTML =
+        "Hasil : " + (data.a ** data.b);
+    }
+}
+
+</script>
+
+</body>
+</html>
