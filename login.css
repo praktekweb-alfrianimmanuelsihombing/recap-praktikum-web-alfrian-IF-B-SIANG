@@ -1,98 +1,180 @@
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #8cb89c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: sans-serif;
+    background: linear-gradient(#44b45e, #a1e7b1);
 }
 
-.login-container {
-    background-color: #6a96cd;
-    width: 380px;
-    padding: 45px 35px;
-    border-radius: 20px;
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.25);
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #44b45e;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
     text-align: center;
-    color: white;
-    box-sizing: border-box;
 }
 
-.login-container h2 {
-    margin-top: 0;
-    margin-bottom: 35px;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 1.3;
+.login-box .user-box {
+    position: relative;
 }
 
-.input-group {
-    text-align: left;
-    margin-bottom: 25px;
-}
-
-.input-group label {
-    display: block;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 5px;
-}
-
-.input-group input {
+.login-box .user-box input {
     width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    color: white;
-    padding: 6px 0;
-    font-size: 16px;
-    outline: none;
-    box-sizing: border-box;
-}
-
-.input-group input[type="password"] {
-    letter-spacing: 2px;
-}
-
-.btn-login {
-    display: block;
-    width: 120px;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 10px 0;
     font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    cursor: pointer;
-    text-align: left;
-    padding-left: 15px;
-    margin-top: 40px;
+    color: #fff;
     margin-bottom: 30px;
-    transition: background 0.3s;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
 }
 
-.btn-login:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
 }
 
-.footer-links {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #ffffff;
+    font-size: 12px;
 }
 
-.footer-links p {
-    margin: 4px 0;
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 20px;
+    letter-spacing: 4px;
 }
 
-.footer-links a {
-    color: #1e3dbe;
-    text-decoration: underline;
+.login-box a:hover {
+    background: #44b45e;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ffffff,
+                0 0 25px #ffffff,
+                0 0 50px #ffffff,
+                0 0 100px #ffffff;
 }
 
-.footer-links a:hover {
-    color: #0f216b;
+.login-box a span {
+    position: absolute;
+    display: block;
+}
+
+/* Animasi Span 1 (Garis Atas) */
+.login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffffff);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+/* Animasi Span 2 (Garis Kanan) */
+.login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #ffffff);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s;
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
+}
+
+/* Animasi Span 3 (Garis Bawah) */
+.login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #ffffff);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s;
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+    50%, 100% {
+        right: 100%;
+    }
+}
+
+/* Animasi Span 4 (Garis Kiri) */
+.login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #ffffff);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s;
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+    50%, 100% {
+        bottom: 100%;
+    }
+}
+
+/* Tambahan Bawah */
+.bawah {
+    padding-top: 20px;
+    color: #ffffff;
+    text-align: center;
 }
