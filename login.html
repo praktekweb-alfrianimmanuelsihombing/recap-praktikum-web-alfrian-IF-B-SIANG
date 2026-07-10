@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Login - Praktikum</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2 id="keterangan">Silahkan Masuk</h2>
+        
+        <form onsubmit="return false;">
+            <div class="input-group">
+                <label for="usr">Username</label>
+                <input type="text" id="usr" autocomplete="off" required>
+            </div>
+
+            <div class="input-group">
+                <label for="pass">Password</label>
+                <input type="password" id="pass" required>
+            </div>
+
+            <button type="button" class="btn-login" onclick="cekLogin()">LOGIN</button>
+
+            <div class="footer-links">
+                <p>Belum punya akun ? <a href="#">Register</a></p>
+                <p>Kembali <a href="#">Back</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>

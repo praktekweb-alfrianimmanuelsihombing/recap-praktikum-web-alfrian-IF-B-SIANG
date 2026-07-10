@@ -1,45 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;900&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="task1.css">
-    <title>Hoopla Movie</title>
+    <title>Konversi Bilangan</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f4f4f4;
+        }
+
+        .container{
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            margin-bottom: 20px;
+        }
+
+        input{
+            padding: 10px;
+            width: 220px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover{
+            background-color: #2980b9;
+        }
+
+        #hasil{
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.8;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="banner">
-        <div class="navbar">
-            <img src="img.png" alt="" class="logo">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">List Movie</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About Us</a></li>
-            </ul>
-        </div>
 
-        <div class="content">
+    <div class="container">
+        <h1>Konversi Bilangan</h1>
 
-            <span class="text pertama-text">EXPLORER YOUR MOVIES</span>
-            <span class="text kedua-text">ACTION</span>
+        <input type="text" id="desimal" placeholder="Masukkan Bilangan Desimal">
+        <br>
 
-            <p>Streaming film dan acara TV tak terbatas di ponsel, tablet, laptop, dan TV-mu.</p>
-            <div>
-                <button class="signup-btn" type="button">
-                    <span class="cover"></span>REGISTER</button>
-                <button class="login-btn" type="button">
-                    <span class="cover"></span>LOGIN</button>
-            </div>
-        </div>
+        <button onclick="konversi()">Konversi</button>
+
+        <div id="hasil"></div>
     </div>
 
-    <script src="task1.js"></script>
-</body>
+    <script>
+        function konversi(){
 
+            let angka = document.getElementById("desimal").value;
+
+            // cek apakah input angka valid
+            if(isNaN(angka) || angka === ""){
+                alert("Masukkan angka yang benar!");
+            } else {
+
+                angka = parseInt(angka);
+
+                // konversi bilangan
+                let biner = angka.toString(2).padStart(8, '0');
+                let oktal = angka.toString(8);
+                let heksa = angka.toString(16).toUpperCase();
+
+                // tampilkan hasil
+                document.getElementById("hasil").innerHTML =
+                    "Biner : " + biner + "<br>" +
+                    "Oktal : " + oktal + "<br>" +
+                    "Heksadesimal : " + heksa;
+            }
+        }
+    </script>
+
+</body>
 </html>
